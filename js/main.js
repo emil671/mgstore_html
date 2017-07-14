@@ -64,16 +64,15 @@
         }
 
         if ($(this).hasClass("active")) {
+            if (top_pos > $("header#header_new").height()) {top_pos = $("header#header_new").height()}
             $("body").addClass("overflow");
             $("#aside_basket").css("height", ($(window).height() - $("#header_new").height() + top_pos)+"px");
+            console.log(top_pos);
             $("#aside_basket").css("margin-top", -top_pos+"px")
            $("#aside_basket .basket_list").css("height", ($(window).height() + top_pos - $("#header_new").height() - $("aside#aside_basket footer").height() - 100 )+"px");
         } else {
             $("body").removeClass("overflow");
-
             $("#aside_basket .basket_list").removeAttr("style");
-
-
         }
         return false;
     });
