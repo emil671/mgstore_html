@@ -1,0 +1,561 @@
+@mixin border_radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -khtml-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin animate_go($duration) {
+  -webkit-animation-duration: $duration;
+  -webkit-transition: all $duration ease-in-out;
+  -moz-animation-duration:$duration;
+  -moz-transition:all $duration ease-in-out;
+  animation-duration:$duration;
+  transition:all $duration ease-in-out;
+}
+
+@mixin transformer($gradus) {
+  -moz-transform: rotate($gradus); /* Для Firefox */
+  -ms-transform: rotate($gradus); /* Для IE */
+  -webkit-transform: rotate($gradus); /* Для Safari, Chrome, iOS */
+  -o-transform: rotate($gradus); /* Для Opera */
+  transform: rotate($gradus);
+}
+
+.basket_main {
+  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0;
+   font-weight: inherit;  font-style: inherit; font-size: 100%; font-family: inherit; /*vertical-align: baseline;*/}  
+
+  /* remember to define focus styles! */
+  :focus { outline: 0;}
+  body { line-height: 1; color: black; background: white;}
+  ol, ul { list-style: none;}
+
+  /* tables still need 'cellspacing="0"' in the markup */
+  table { border-collapse: separate; border-spacing: 0;}
+  caption, th, td { /*text-align: left;*/ font-weight: normal;}
+  blockquote:before, blockquote:after,q:before, q:after { content: "";}
+  blockquote, q { quotes: "" "";}
+
+
+  .basket_list {
+    margin: 10px 0 0;
+    display: table;
+    width: 100%;
+    > ul {
+      display: table-row;
+      &:last-child li {
+        border: none;
+      }
+      &.head > li {
+        padding: 20px 30px 20px 0;
+        color: #a0a0a0;
+        font-size: 14px;
+      }
+      &.inset > li {
+        padding: 10px 30px 10px 0;
+        vertical-align: middle;
+      }
+      > li {
+        display: table-cell;
+        border-bottom: 1px solid #d8d8d8;
+        &:last-child {
+          padding: 0;
+        }
+        .item_image {
+          a {
+            &:hover {
+              img {
+                border: 1px solid #a0a0a0;
+              }
+            }
+            img {
+                border: 1px solid #fff;
+                @include border_radius(12px);
+
+            }
+          }
+        }
+        h3 {
+          font-size: 14px;
+          a {
+            color: #333e48;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+        ul {
+          overflow: hidden;
+          li {
+            width: 50%;
+            float: left;
+            & + li {
+              padding: 0 0 0 20px;
+            }
+            span {
+              color: #333e48;
+              font-size: 11px;
+              line-height: 13px;
+            }
+            strong {
+              padding: 0 13px 0 0;
+              color: #333e48;
+              font-family: "Open Sans";
+              font-size: 14px;
+              line-height: 13px;
+              text-decoration: line-through;
+              background: url(../img/azn_gray_small.svg) no-repeat 100% 4px;
+            }
+          }
+        }
+      }
+    }
+    .price {
+      color: #333e48;
+      font-family: "Open Sans";
+      font-size: 17px;
+      span {
+        padding: 0 20px 0 0;
+        background: url(../img/azn_gray.svg) no-repeat 100% 5px;
+      }
+      em {
+        display: inline-block;
+        height: 32px;
+        padding: 0 9px;
+        margin: 0 0 0 30px;
+        color: #ffffff;
+        line-height: 32px;
+        font-size: 14px;
+        background: #f46508;
+        @include border_radius(5px);
+      }
+    }
+    .bonus {
+      color: #5c9c12;
+      font-family: "Open Sans";
+      font-size: 17px;
+      span {
+        padding: 0 20px 0 0;
+        background: url(../img/azn_green.svg) no-repeat 100% 5px;
+      }
+      em {
+        display: none;
+        color: #989898;
+      }
+    }
+    .remove {
+      text-align: center;
+      a {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: url(../img/remove_icon.svg) no-repeat 0 0;
+        &:hover {
+          background: url(../img/remove_icon.svg) no-repeat 0 100%;
+
+        }
+      }
+    }
+
+  }
+
+  .plus_minus {
+    width: 110px;
+    margin: 0 0 10px;
+    border: 1px solid #d8d8d8;
+    overflow: hidden;
+    position: relative;
+    @include border_radius(20px);
+    input {
+      display: block;
+      height: 40px;
+      width: 50px;
+      margin: 0 auto;
+      border: none;
+      text-align: center;
+      font-size: 14px;
+    }
+    a {
+      display: block;
+      width: 26px;
+      height: 26px;
+      position: absolute;
+      top: 7px;
+      @include border_radius(50%);
+      @include animate_go(0.04s);
+      &.minus {
+        left: 7px;
+        background: #E3E3E3 url(../img/minus_icon.svg) no-repeat 50% 50%;
+        &:hover {
+          background: #f46508 url(../img/minus_icon.svg) no-repeat 50% 50%;
+        }
+      }
+      &.plus {
+        right: 7px;
+        background: #E3E3E3 url(../img/plus_icon.svg) no-repeat 50% 50%;
+        &:hover {
+          background: #f46508 url(../img/plus_icon.svg) no-repeat 50% 50%;
+        }
+      }
+      &:active {
+        -webkit-box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.75);
+        box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.75);
+      }
+    }
+  }
+
+  .promo_code {
+    width: 550px;
+    float: left;
+    padding: 20px 20px 40px;
+    border: 1px solid #d8d8d8;
+    @include border_radius(20px);
+    h3 {
+      padding: 0 0 15px;
+      color: #bdbdbd;
+      font-size: 18px;
+    }
+    p {
+      padding: 0 0 30px;
+      color: #333e48;
+      font-size: 14px;
+      line-height: 16px;
+    }
+    form {
+      display: block;
+      overflow: hidden;
+      input {
+        display: block;
+        width: 180px;
+        height: 40px;
+        float: left;
+        margin: 0 10px 0 0;
+        border: 1px solid #d8d8d8;
+        background: #fff;
+        @include border_radius(20px);
+      }
+      button {
+        display: block;
+        width: 200px;
+        height: 40px;
+        padding: 0 20px;
+        color: #fff;
+        background: #333e48;
+        @include border_radius(30px);
+        &:hover {
+          background: #415567;
+        }
+      }
+    }
+  }
+
+  .total_basket {
+    width: 380px;
+    float: right;
+    margin: 0 0 0 20px;
+    > div {
+      margin: 0 0 10px;
+      padding: 20px 20px 12px;
+      border: 1px solid #d8d8d8;
+      background: #fff;
+      @include border_radius(20px);
+      h3 {
+        padding: 0 0 15px;
+        color: #bdbdbd;
+        font-size: 18px;
+      }
+      dl {
+        overflow: hidden;
+        dt {
+          width: 70%;
+          float: left;
+          padding: 0 0 8px;
+          color: #333e48;
+          font-size: 14px;
+        }
+        dd {
+          width: 30%;
+          float: right;
+          padding: 0 0 8px;
+          text-align: right;
+          color: #f46508;
+          font-size: 20px;
+          font-family: "Open Sans";
+          font-weight: 400;
+        }
+      }
+    }
+    a.checkout {
+      display: block;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      color: #fff;
+      font-size: 16px;
+      background: #5c9c11;
+      @include border_radius(30px);
+      &:hover {
+        background: #6bb515;
+      }
+    }
+  }
+
+}
+
+
+aside#aside_basket {
+  display: none;
+  background: #fff;
+  width: 380px;
+  height: 100%;
+  position: fixed;
+  top: 130px;
+  right: -380px;
+  z-index: 3;
+
+  @include animate_go(0.3s);
+  &.active {
+    display: block;
+
+  }
+  &.show_me {
+    left: auto;
+    right: 0;
+  }
+
+  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0;
+   font-weight: inherit;  font-style: inherit; font-size: 100%; font-family: inherit; /*vertical-align: baseline;*/}  
+
+  /* remember to define focus styles! */
+  :focus { outline: 0;}
+  body { line-height: 1; color: black; background: white;}
+  ol, ul { list-style: none;}
+
+  /* tables still need 'cellspacing="0"' in the markup */
+  table { border-collapse: separate; border-spacing: 0;}
+  caption, th, td { /*text-align: left;*/ font-weight: normal;}
+  blockquote:before, blockquote:after,q:before, q:after { content: "";}
+  blockquote, q { quotes: "" "";}
+
+
+  h2 {
+    padding: 24px 0 5px;
+    text-align: center; 
+    color: #333e48;
+    font-family: "Open Sans";
+    font-size: 24px;
+  }
+
+  .basket_list {
+    overflow-y: auto;
+    padding: 0 20px;
+    ul {
+      li {
+        overflow: hidden;
+        padding: 10px 0;
+        border-bottom: 1px solid #d8d8d8;
+        &:last-child {
+          border: none;
+        }
+        .item_image {
+          float: left;
+          min-height: 100px;
+          padding: 0 20px 0 0;
+          a {
+            img {
+              width: 60%;
+            }
+          }
+        }
+        h3 {
+          padding: 10px 0 5px;
+          font-size: 14px;
+          a {
+            color: #333e48;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+        .price {
+          padding: 0 0 2px;
+          font-family: "Open Sans";
+          font-size: 14px;
+          em {
+            color: #989898;
+          }
+          span {
+            padding: 0 16px 0 0;
+            color: #f46508;
+            background: url(../img/azn_orange.svg) no-repeat 100% 4px;
+            & + span {
+              margin: 0 0 0 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    padding: 15px 20px 10px;
+    border-top: 1px solid #d8d8d8;
+    .totals {
+      padding: 0 0 10px;
+      dl {
+        overflow: hidden;
+        dt {
+          width: 70%;
+          float: left;
+          padding: 0 0 12px;
+          color: #333e48;
+          font-size: 14px;
+        }
+        dd {
+          width: 30%;
+          float: right;
+          padding: 0 0 12px;
+          color: #f46508;
+          font-size: 20px;
+          text-align: right;
+          padding: 0 18px 0 0;
+          background: url(../img/azn_orange.svg) no-repeat 100% 5px;
+          & + dt + dd {
+            color: #5c9c12;
+            background: url(../img/azn_green_small.svg) no-repeat 100% 5px;
+          }
+        }
+      }
+    }
+    .last {
+      padding: 0 10px;
+      overflow: hidden;
+      ul {
+        li {
+          width: 45%;
+          float: left;
+          & + li {
+            float: right;
+          }
+          a.checkout {
+            display: block;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            font-size: 14px;
+            background: #5c9c11;
+            @include border_radius(30px);
+            &:hover {
+              background: #6bb515;
+            }
+          }
+          a.to_basket {
+            padding: 0 13px 0 0;
+            text-align: right;
+            line-height: 40px;
+            color: #333e48;
+            font-size: 14px;
+            background: url(../img/gray_pt.svg) no-repeat 100% 5px;
+
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+
+.cabinet_icons ul li a.basket {
+  position: relative;
+  &.active {
+    &::after {
+      bottom: -21px;
+    }
+  }
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 7px 8px 7px;
+    border-color: transparent transparent #fff transparent;
+    position: absolute;
+    left: 50%;
+    bottom: -29px;
+    @include animate_go(0.5s);
+
+  }
+}
+
+header#header_new {
+  background: #fff;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+aside#aside_block {
+  display: none;
+}
+
+aside#aside_block {
+  display: none;
+  left: 100%;
+
+
+  //@include animate_go(0.3s);
+
+  &.active {
+    display: block;
+    left: 100%;
+    &.show_me {
+      left: 50%;
+      right: 0;
+    }
+  }
+
+
+
+}
+
+
+
+.empty_basket {
+  display: table;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: #343f49;
+  > div {
+    display: table-row;
+    > div {
+      display: table-cell;
+      vertical-align: middle;
+      padding: 0 30px !important;
+      text-align: center;
+      strong {
+        display: block;
+        padding: 0 0 20px !important;
+        font-size: 22px !important;
+      }
+      span {
+        display: block;
+        font-size: 13px !important;
+        line-height: 16px !important;
+      }
+    }
+  }
+}
