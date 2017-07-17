@@ -365,20 +365,20 @@
 .basket_main .total_basket > div dl dd {
   width: 30%;
   float: right;
-  padding: 0 23px 8px 0;
+  padding: 0 20px 8px 0;
   text-align: right;
   color: #f46508;
   font-size: 20px;
   font-family: "Open Sans";
   font-weight: 400;
   background: url(../img/azn_orange.svg) no-repeat 100% 5px;
-  background-size: 17px;
+  background-size: 12px;
 }
 
 .basket_main .total_basket > div dl dd:last-child {
   color: #6bb515;
   background: url(../img/azn_green.svg) no-repeat 100% 5px;
-  background-size: 17px;
+  background-size: 12px;
 }
 
 .basket_main .total_basket a.checkout {
