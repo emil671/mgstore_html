@@ -521,6 +521,27 @@ aside#aside_basket .basket_list ul li .price span {
 
 aside#aside_basket .basket_list ul li .price span + span {
   margin: 0 0 0 15px;
+  text-decoration: line-through;
+}
+
+aside#aside_basket .basket_list ul li .bonus {
+  padding: 0 0 2px;
+  font-family: "Open Sans";
+  font-size: 14px;
+}
+
+aside#aside_basket .basket_list ul li .bonus em {
+  color: #989898;
+}
+
+aside#aside_basket .basket_list ul li .bonus span {
+  padding: 0 16px 0 0;
+  color: #333e48;
+  background: url(../img/azn_gray_small.svg) no-repeat 100% 4px;
+}
+
+aside#aside_basket .basket_list ul li .bonus span + span {
+  margin: 0 0 0 15px;
 }
 
 aside#aside_basket footer {
