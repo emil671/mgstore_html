@@ -553,8 +553,8 @@ aside#aside_basket .basket_list ul li .bonus em {
 
 aside#aside_basket .basket_list ul li .bonus span {
   padding: 0 16px 0 0;
-  color: #333e48;
-  background: url(../img/azn_gray_small.svg) no-repeat 100% 4px;
+  color: #5c9c12;
+  background: url(../img/azn_green_small.svg) no-repeat 100% 4px;
 }
 
 aside#aside_basket .basket_list ul li .bonus span + span {
