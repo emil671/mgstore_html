@@ -138,8 +138,12 @@
   font-family: "Open Sans";
   font-size: 14px;
   line-height: 13px;
-  text-decoration: line-through;
+  text-decoration: none;
   background: url(../img/azn_gray_small.svg) no-repeat 100% 4px;
+}
+
+.basket_main .basket_list > ul > li ul li:first-child strong {
+  text-decoration: line-through;
 }
 
 .basket_main .basket_list .price {
@@ -361,7 +365,7 @@
 .basket_main .total_basket > div dl dd {
   width: 30%;
   float: right;
-  padding: 0 20px 8px 0;
+  padding: 0 23px 8px 0;
   text-align: right;
   color: #f46508;
   font-size: 20px;
