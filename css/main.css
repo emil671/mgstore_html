@@ -84,6 +84,11 @@
   padding: 0;
 }
 
+.basket_main .basket_list > ul > li .item_image {
+  min-height: 88px;
+}
+
+
 .basket_main .basket_list > ul > li .item_image a:hover img {
   border: 1px solid #a0a0a0;
 }
